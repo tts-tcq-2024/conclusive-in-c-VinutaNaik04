@@ -11,12 +11,13 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
 void Print_status(BreachType breachType)
 {
             // Combine breach type handling into one block
-        const char* message = (breachType == TOO_LOW) ? "Hi, the temperature is too low\n" :
-                            (breachType == TOO_HIGH) ? "Hi, the temperature is too high\n" :
-                            ""; // No message needed for NORMAL or unknown types
-        if (*message) { // Print message only if it's non-empty
-            printf("%s", message);
-        }
+        const char* message ;
+    if (breachType == TOO_LOW)
+        print ("Hi, the temperature is too low\n");
+    else if (breachType == TOO_HIGH) 
+        print("Hi, the temperature is too high\n" );
+    else 
+        print ("");        
 }
 
 // Function to get upper limit based on cooling type
