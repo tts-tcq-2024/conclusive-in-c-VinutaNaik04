@@ -32,10 +32,10 @@ void sendAlert(AlertTarget alertTarget, BreachType breachType) {
     } else if (alertTarget == TO_EMAIL) {
         const char* recipient = "a.b@example.com";
         printf("To: %s\n", recipient);
-        Print_Msg(breachType);
+        Print_status(breachType);
     }
 } 
-void Print_Msg(BreachType breachType)
+void Print_status(BreachType breachType)
 {
             // Combine breach type handling into one block
         const char* message = (breachType == TOO_LOW) ? "Hi, the temperature is too low\n" :
