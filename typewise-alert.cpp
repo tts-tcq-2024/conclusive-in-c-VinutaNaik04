@@ -32,15 +32,19 @@ void sendAlert(AlertTarget alertTarget, BreachType breachType) {
     } else if (alertTarget == TO_EMAIL) {
         const char* recipient = "a.b@example.com";
         printf("To: %s\n", recipient);
-        // Combine breach type handling into one block
+        Print_Msg();
+    }
+} 
+void Print_Msg()
+{
+            // Combine breach type handling into one block
         const char* message = (breachType == TOO_LOW) ? "Hi, the temperature is too low\n" :
                             (breachType == TOO_HIGH) ? "Hi, the temperature is too high\n" :
                             ""; // No message needed for NORMAL or unknown types
         if (*message) { // Print message only if it's non-empty
             printf("%s", message);
         }
-    }
-} 
+}
 
 
 // Main function to check temperature and send alerts based on breach and target
