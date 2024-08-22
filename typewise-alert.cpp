@@ -13,11 +13,11 @@ void Print_status(BreachType breachType)
             // Combine breach type handling into one block
         const char* message ;
     if (breachType == TOO_LOW)
-        print ("Hi, the temperature is too low\n");
+        printf ("Hi, the temperature is too low\n");
     else if (breachType == TOO_HIGH) 
-        print("Hi, the temperature is too high\n" );
+        printf("Hi, the temperature is too high\n" );
     else 
-        print ("");        
+        printf ("");        
 }
 
 // Function to get upper limit based on cooling type
