@@ -7,6 +7,17 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
     if (value > upperLimit) return TOO_HIGH;
     return NORMAL;
 }
+// status print
+void Print_status(BreachType breachType)
+{
+            // Combine breach type handling into one block
+        const char* message = (breachType == TOO_LOW) ? "Hi, the temperature is too low\n" :
+                            (breachType == TOO_HIGH) ? "Hi, the temperature is too high\n" :
+                            ""; // No message needed for NORMAL or unknown types
+        if (*message) { // Print message only if it's non-empty
+            printf("%s", message);
+        }
+}
 
 // Function to get upper limit based on cooling type
 int getUpperLimit(CoolingType coolingType) {
@@ -35,16 +46,7 @@ void sendAlert(AlertTarget alertTarget, BreachType breachType) {
         Print_status(breachType);
     }
 } 
-void Print_status(BreachType breachType)
-{
-            // Combine breach type handling into one block
-        const char* message = (breachType == TOO_LOW) ? "Hi, the temperature is too low\n" :
-                            (breachType == TOO_HIGH) ? "Hi, the temperature is too high\n" :
-                            ""; // No message needed for NORMAL or unknown types
-        if (*message) { // Print message only if it's non-empty
-            printf("%s", message);
-        }
-}
+
 
 
 // Main function to check temperature and send alerts based on breach and target
