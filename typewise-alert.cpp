@@ -22,13 +22,12 @@ void Print_status(BreachType breachType)
 
 // Function to get upper limit based on cooling type
 int getUpperLimit(CoolingType coolingType) {
-    switch (coolingType) {
-        case PASSIVE_COOLING: return 35;
-        case HI_ACTIVE_COOLING: return 45;
-        case MED_ACTIVE_COOLING: return 40;
-        default: return 0; // Default lower limit, no need to handle unknown types here
-    }
-}
+    static const int upperLimits[] = { 35, 45, 40, 0 }; // 0 is default for unknown types
+    return (coolingType >= PASSIVE_COOLING && coolingType <= MED_ACTIVE_COOLING) 
+           ? upperLimits[coolingType] 
+           : upperLimits[3];
+} 
+
 
 // Function to classify temperature breach based on cooling type and temperature
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) {
